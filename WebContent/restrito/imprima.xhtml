@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<ui:composition template="/templates/externalogado.xhtml">
+	<ui:define name="titulo">
+		Baixe Nossos Dados
+	</ui:define>
+	<ui:define name="corpo">
+		<body>
+			<center>
+				<p style="font-size: 15px">
+				<h1>Realize download de nossos dados</h1>
+				</p>
+			</center>
+			<center>
+				<p style="font-size: 15px">Aqui temos uma tabela contendo os
+					dados da pandemia do novo coronavírus de cada cidade.</p>
+			</center>
+			<p:separator />
+			<h:form><center>
+				Baixe nossos dados gerando um arquivo PDF ou CSV clicando nos icones abaixo, para ter as informações a qualquer hora.
+				<br></br><br></br><h:commandLink>
+					<p:graphicImage library="imagens" name="pdf.png"></p:graphicImage>
+					<p:dataExporter type="pdf" target="tbl" fileName="covid dados"></p:dataExporter>
+				</h:commandLink>
+				<h:commandLink>
+					<p:graphicImage library="imagens" name="excel.png"></p:graphicImage>
+					<p:dataExporter type="csv" target="tbl" fileName="covid dados"></p:dataExporter>
+				</h:commandLink></center><br></br>
+				<p:dataTable value="#{casoBean.lista}" var="caso" border="1"
+					cellpadding="2" cellspacing="0" paginator="true"
+					paginatorPosition="bottom" rows="5" id="tbl">
+					<p:column headerText="Cidade" width="170">
+						<h:outputText value="#{caso.city}" />
+					</p:column>
+					<p:column headerText="Data" width="170">
+						<h:outputText value="#{caso.data}" />
+					</p:column>
+					<p:column headerText="Casos" width="170">
+						<h:outputText value="#{caso.confirmed}" />
+					</p:column>
+					<p:column headerText="Mortes" width="170">
+						<h:outputText value="#{caso.deaths}" />
+					</p:column>
+				</p:dataTable>
+				<br></br><br></br>
+				<center>
+					<p style="font-size: 15px">A tabela a baixo mostra os links de
+						noticia sobre o novo coronavírus em cada estado.</p>
+				</center>
+				<p:separator /><center>
+				Baixe nossos dados gerando um arquivo PDF ou CSV clicando nos icones abaixo, para ter as informações a qualquer hora.
+					<br></br><br></br><h:commandLink>
+					<p:graphicImage library="imagens" name="pdf.png"></p:graphicImage>
+					<p:dataExporter type="pdf" target="tbl2" fileName="covid dados"></p:dataExporter>
+				</h:commandLink>
+				<h:commandLink>
+					<p:graphicImage library="imagens" name="excel.png"></p:graphicImage>
+					<p:dataExporter type="csv" target="tbl2" fileName="covid dados"></p:dataExporter>
+				</h:commandLink></center><br></br>
+				<p:dataTable value="#{boletimBean.lista}" var="boletim" border="1"
+					cellpadding="2" cellspacing="0" paginator="true"
+					paginatorPosition="bottom" rows="5" id="tbl2">
+
+					<p:column headerText="Estado" width="250">
+						<h:outputText value="#{boletim.estados}" />
+					</p:column>
+					<p:column headerText="Links" width="250">
+						<h:outputLink value="#{boletim.url}">#{boletim.url}</h:outputLink>
+					</p:column>
+				</p:dataTable>
+			</h:form>
+			</body>
+	</ui:define>
+</ui:composition>
+</html>

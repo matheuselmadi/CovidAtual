@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="/templates/interna.xhtml">
+	<ui:define name="titulo">
+		Cadastro de Usuários
+	</ui:define>
+
+	<ui:define name="corpo">
+		<center>
+			<br />
+			<br />
+			<h:form id="cadastro">
+				<h:messages />
+				<h:inputHidden value="#{usuarioBean.usuario.codigo}" />
+				<h:inputHidden value="#{usuarioBean.usuario.ativo}" />
+				<h:inputHidden value="#{usuarioBean.destinoSalvar}" />
+
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Nome:" for="nome" />
+					<h:inputText id="nome" label="Nome"
+						value="#{usuarioBean.usuario.nome}" size="30" maxlength="30"
+						required="true" requiredMessage="Você precisa digitar seu nome.">
+						<f:validateLength minimum="3" maximum="20" />
+					</h:inputText>
+
+					<h:outputLabel value="Sobrenome:" for="sobrenome" />
+					<h:inputText id="sobrenome" label="Sobrenome"
+						value="#{usuarioBean.usuario.sobrenome}" size="30" maxlength="30"
+						required="true"
+						requiredMessage="Você precisa digitar seu sobrenome.">
+						<f:validateLength minimum="3" maximum="30" />
+					</h:inputText>
+
+					<h:outputLabel value="Data Nascimento:" for="data" />
+					<h:inputText id="data" label="Data Nascimento"
+						value="#{usuarioBean.usuario.nascimento}" size="10" maxlength="10"
+						required="true">
+						<!-- <f:convertDateTime dateStyle="medium" /> -->
+						<f:convertDateTime type="date" pattern="dd/MM/yyyy"
+							timeZone="GMT-3" />
+					</h:inputText>
+
+					<h:outputLabel value="E-mail:" for="email" />
+					<h:panelGroup>
+						<h:inputText id="email" label="e-Mail"
+							value="#{usuarioBean.usuario.email}" size="50" maxlength="50"
+							required="true" validatorMessage="e-mail inválido">
+							<f:validateRegex pattern="[a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9\-\_\.]+" />
+						</h:inputText>
+						<h:message for="email" />
+					</h:panelGroup>
+
+					<h:outputLabel value="Cidade:" for="cidade" />
+					<h:inputText id="cidade" label="Cidade"
+						value="#{usuarioBean.usuario.cidade}" size="30" maxlength="30"
+						required="true" requiredMessage="Você precisa digitar sua cidade.">
+						<f:validateLength minimum="3" maximum="10" />
+					</h:inputText>
+					<h:outputLabel value="Idioma:" for="idioma" />
+					<h:selectOneMenu id="idioma" value="#{usuarioBean.usuario.idioma}">
+						<f:selectItem itemValue="pt_BR" itemLabel="Português" />
+						<f:selectItem itemValue="en_US" itemLabel="English" />
+						<f:selectItem itemValue="es_ES" itemLabel="Espanol" />
+					</h:selectOneMenu>
+					
+					<h:outputLabel value="UF:" for="estados" />
+					<h:selectOneMenu value="#{usuarioBean.usuario.UF}">
+						<f:selectItems value="#{usuarioBean.estados}" />
+					</h:selectOneMenu>
+
+					<h:outputLabel value="Login:" for="login" />
+					<h:inputText id="login" label="Login"
+						value="#{usuarioBean.usuario.login}" size="15" maxlength="15"
+						required="true"
+						validatorMessage="Login deve ter no mínimo 5 e no máximo 15 caracteres e só pode ter os símbolos '.' e '_'.">
+						<f:validateRegex pattern="([a-z]|[0-9]|[.]|[_]){5,15}" />
+					</h:inputText>
+
+					<h:outputLabel value="Senha:" for="senha" />
+					<h:inputSecret id="senha" label="Senha"
+						value="#{usuarioBean.usuario.senha}" size="15" maxlength="20"
+						required="true" redisplay="true" validatorMessage="A senha deve ser de 8 a 20 caracteres contendo uma letra maiúscula, um número, e um caractere especial.">
+						<f:validateRegex pattern="((?=.*\d)(?=.*[a-zA-Z])(?=.*[@#$%])[a-zA-Z0-9@$$%]{8,20})" />
+					</h:inputSecret>
+					
+					<h:outputLabel value="Confirmar Senha:" for="confirmarsenha" />
+					<h:inputSecret id="confirmarsenha" label="Confirmar Senha"
+						value="#{usuarioBean.confirmarSenha}" size="15" maxlength="20"
+						required="true" redisplay="true" />
+				</h:panelGrid>
+
+				<h:commandButton action="#{usuarioBean.salvar}" value="Salvar" />
+			</h:form>
+		</center>
+	</ui:define>
+</ui:composition>
+</html>

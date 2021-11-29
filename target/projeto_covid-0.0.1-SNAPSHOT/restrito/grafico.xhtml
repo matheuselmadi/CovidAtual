@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<ui:composition template="/templates/externalogado.xhtml">
+	<ui:define name="titulo">
+		Graficos
+	</ui:define>
+	<ui:define name="corpo">
+		<h:body>
+			<center>
+				<p style="font-size: 15px">
+				<h1>Graficos</h1>
+				</p>
+
+				<p style="font-size: 15px">Por aqui é possivel gerar um grafico
+					baseado nos casos do COVID por estados. Digite na caixa o UF do seu
+					estado e clique no botão mostrar para exibir o grafico.</p>
+
+
+				<h:form>
+					<p:inputText value="#{graficoColunasBean.pesquisa}" />
+					<p:commandButton value="Mostrar"
+						action="#{graficoColunasBean.busca}" id="graficar"
+						update="grafico" />
+					<br></br>
+					<br></br>
+					<br></br>
+					<br></br>
+					<h:panelGrid id="grafico">
+						<p:chart id="grf" type="bar"
+							model="#{graficoColunasBean.casosColunas}"
+							rendered="#{graficoColunasBean.pesquisa != null}"
+							style="width:700px;height:500px;" />
+					</h:panelGrid>
+				</h:form>
+			</center>
+		</h:body>
+	</ui:define>
+</ui:composition>
+</html>

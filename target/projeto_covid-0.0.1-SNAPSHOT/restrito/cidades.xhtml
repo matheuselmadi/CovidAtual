@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<ui:composition template="/templates/externalogado.xhtml">
+	<ui:define name="titulo">
+		Covid Atual
+	</ui:define>
+	<ui:define name="corpo">
+		<body>
+	<center><p style="font-size: 15px"><h1>Cidades Afetadas</h1></p></center>
+	<center><p style="font-size: 15px">Aqui temos uma tabela contendo os dados da pandemia do novo coronavírus de cada cidade. Para localizar sua cidade, utilize a caixa de busca abaixo.</p></center>
+			<p:separator />
+			<h:form>
+			<h:panelGrid columns="3">
+				<p:inputText value="#{consultaCasoBean.filtro.city}" id="estados"/>
+				<p:commandButton value="Consultar" update="tbl" process="@form" />
+			</h:panelGrid>
+				<p:dataTable value="#{consultaCasoBean.model1}" lazy="true" 
+				var="caso" border="1" cellpadding="2" cellspacing="0"
+				paginator="true" paginatorPosition="bottom" rows="5" id="tbl">
+					<p:column headerText="Cidade" width="170">
+						<h:outputText value="#{caso.city}" />
+					</p:column>
+					<p:column headerText="Data" width="170">
+						<h:outputText value="#{caso.data}" />
+					</p:column>
+					<p:column headerText="Casos" width="170">
+						<h:outputText value="#{caso.confirmed}" />
+					</p:column>
+					<p:column headerText="Mortes" width="170">
+						<h:outputText value="#{caso.deaths}" />
+					</p:column>
+				</p:dataTable>
+				<p:separator />						
+			</h:form>
+			<center><p style="font-size: 15px">A tabela acima mostra dados de mortes e casos confirmados por data, nas cidades no Brasil.</p></center>
+		</body>		
+	</ui:define>	
+</ui:composition>
+</html>

@@ -1,0 +1,135 @@
+body, td, th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+th {
+	background: url(#{resource['imagens:fundo_claro.png']}); 
+	min-height: 25px;
+	padding: 3px;
+}
+
+img {
+	border:0px;
+}
+
+#container {
+	width: 770px;
+	height: 100%;
+	margin: 0 auto
+}
+	
+#titulo {
+	float: left;
+	font-size: 25pt;
+	font-variant: small-caps;
+	font-weight: bold;
+}
+
+#barra_menu {
+	background: url(#{resource['imagens:fundo_barra_menu.png']}) repeat-x; 
+	min-height: 25px;
+	padding: 3px;
+	clear:both;
+}
+
+#corpo {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	min-height: 300px;
+}
+
+#rodape {
+	background: url(#{resource['imagens:fundo_barra_rodape.png']}) repeat-x;
+	height: 20px;
+	margin-top: 50px;
+	padding: 10px;
+	text-align: center;
+}
+
+.info {
+	font-weight: bold;
+	color: green;
+}
+
+.warn {
+	font-weight: bold;
+	color: #FFCC00;
+}
+
+.fatal, .error {
+	font-weight: bold;
+	color: red;
+}
+
+#menu ul {
+			padding:0px;
+			margin:0px;
+			float: left;
+			width: 100%;
+			background-color:#91b792;
+			list-style:none;
+			font:100% Tahoma;
+		}
+		 
+		#menu ul li { display: inline;}
+ 
+		#menu ul li a {
+			background-color:#91b792;
+			color: #FFF;
+			text-decoration: none;
+			border-bottom:3px solid #91b792;
+			padding: 2px 10px;
+			float:left;
+		}
+ 
+		#menu ul li a:hover {
+			background-color:#9cc9a0;
+			color: #6D6D6D;
+			border-bottom:3px solid #002210;
+		}
+		#menu li span {
+			 padding: 1px;
+ 			 position: relative;
+ 			 left: 520px;
+		}
+		
+		
+#menu2 ul {
+			padding:0px;
+			margin:0px;
+			float: left;
+			width: 100%;
+			background-color:#91b792;
+			list-style:none;
+			font:100% Tahoma;
+		}
+		 
+		#menu2 ul li { display: inline;}
+ 
+		#menu2 ul li a {
+			background-color:#91b792;
+			color: #FFF;
+			text-decoration: none;
+			border-bottom:3px solid #91b792;
+			padding: 2px 10px;
+			float:left;
+		}
+ 
+		#menu2 ul li a:hover {
+			background-color:#9cc9a0;
+			color: #6D6D6D;
+			border-bottom:3px solid #002210;
+		}
+		#menu2 li span {
+			 padding: 1px;
+ 			 position: relative;
+ 			 left: 380px;
+		}
+	#svg-map path { fill:#0094d9 }
+    #svg-map text { fill:#fff; font:12px Arial-BoldMT, sans-serif; cursor:pointer }
+    #svg-map a{ text-decoration:none }
+    #svg-map a:hover { cursor:pointer; text-decoration:none }
+    #svg-map a:hover path{ fill:#003399 !important }
+    #svg-map .circle { fill:#66ccff }
+    #svg-map a:hover .circle { fill:#003399 !important; cursor:pointer }

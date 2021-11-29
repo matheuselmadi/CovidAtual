@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<ui:composition template="/templates/externa.xhtml">
+	<ui:define name="titulo">
+		Esqueci minha senha
+	</ui:define>
+	<ui:define name="corpo">
+		<h:body>
+			<center>
+				<p style="font-size: 15px">
+				<h1>Esqueci minha senha</h1>
+				</p>
+				<p style="font-size: 15px">Digite seu e-mail cadastrado e clique
+					no botão ENVIAR, feito isso, enviaremos sua senha no e-mail
+					cadastrado para que você possa voltar a acessar nosso site.</p>
+				<h:form>
+					<h:outputLabel value="Login:" for="login" />
+					<h:inputText id="login" label="Login"
+						value="#{usuarioBean.usuario.login}" size="10" maxlength="30"
+						required="true">
+					</h:inputText>
+					<h:commandButton action="#{usuarioBean.recuperaSenha}"
+						value="Enviar" />
+				</h:form>
+			</center>
+		</h:body>
+	</ui:define>
+</ui:composition>
+</html>

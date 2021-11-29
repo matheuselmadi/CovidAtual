@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	<ui:composition template="/templates/externa.xhtml">
+	<ui:define name="titulo">
+		Covid Atual
+	</ui:define>
+	<ui:define name="corpo">
+
+	<h:body><center>
+	<p style="font-size: 15px">O site mostra o estado atual do COVID nas cidades, incluindo noticias diárias de cada região.</p>
+	<br/><br/>
+	
+    <table border="1" class="tabelaEditavel">
+        <thead>
+            <tr>
+                <th height="30"><font color="#FFFFFF">Estados</font></th>
+                <th width="50%"><font color="#FFFFFF">Links</font></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr align="center">
+                <td height="30">São Paulo</td>
+                <td><a href="http://saude.sp.gov.br/ses/perfil/cidadao/homepage/destaques/governo-de-sp-cria-centro-de-contingencia-do-coronavirus" target="_blank">Noticias</a></td>
+            </tr>
+            <tr align="center">
+                <td height="30">Rio de Janeiro</td>
+                <td><a href="https://www.saude.rj.gov.br/noticias/2020/03/primeiro-caso-do-novo-coronavirus-e-confirmado-no-estado-do-rio" target="_blank">Noticias</a></td>
+                
+            </tr>
+            <tr align="center">
+                <td height="30">               Distrito Federal               </td>
+                <td><a href="http://www.saude.df.gov.br/wp-conteudo/uploads/2020/02/Informe_1_COE_COVID19_DF_28fev20.pdf.pdf" target="_blank">Noticias</a></td>
+            </tr>
+             <tr align="center">
+                <td height="30">Goias</td>
+                <td><a href="http://www.saude.go.gov.br/noticias/10521-atualizacao-dos-casos-suspeitos-do-novo-coronavirus-covid-19-em-goias-3" target="_blank">Noticias</a></td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+	<br/>
+	<p style="font-size: 15px">Para ver noticias detalhadas de cada estado, clique no link. <br/><b>* É necessário estar logado para ver informações detalhadas.</b></p>
+	</center>
+	</h:body>
+	</ui:define>
+</ui:composition>
+</html>

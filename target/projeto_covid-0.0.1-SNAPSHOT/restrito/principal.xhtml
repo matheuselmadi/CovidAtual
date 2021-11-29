@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<ui:composition template="/templates/externalogado.xhtml">
+	<ui:define name="titulo">
+		Covid Atual
+	</ui:define>
+	<ui:define name="corpo">
+		<body>
+	<center><p style="font-size: 15px">A tabela a baixo mostra os links de noticia sobre o novo coronavírus em cada estado, utilize a caixa de busca a baixo para localizar notícias de um estado específico.</p></center>
+			<p:separator />
+			<h:form>
+			<h:panelGrid columns="3">
+				<p:inputText value="#{consultaBoletimBean.filtro.estado}" id="estados"/>
+				<p:commandButton value="Consultar" update="tbl" process="@form" />
+			</h:panelGrid>
+				<p:dataTable value="#{consultaBoletimBean.model}" lazy="true" 
+				var="boletim" border="1" cellpadding="2" cellspacing="0"
+				paginator="true" paginatorPosition="bottom" rows="5" id="tbl">
+
+					<p:column headerText="Estado" width="250">
+						<h:outputText value="#{boletim.estados}" />
+					</p:column>
+					<p:column headerText="Links" width="250">
+					<h:outputLink value="#{boletim.url}">#{boletim.url}</h:outputLink>
+					</p:column>
+				</p:dataTable>
+				<p:separator />
+			</h:form>
+			<center><p style="font-size: 15px">Para ver noticias detalhadas de cada estado, clique no link.</p></center>
+		</body>		
+	</ui:define>	
+</ui:composition>
+</html>
